@@ -13,3 +13,7 @@
 Метод должен быть описан в соотвествии со стандартом OpenAPI и доступен через SwaggerUI
 
 Класс iMessengerCoreAPI.Models.RGDialogsClients задан изначально.
+
+## Run
+
+Запустите iMessengerWebAPI.exe и перейдите на страницу http://localhost:5000/swagger/index.html
