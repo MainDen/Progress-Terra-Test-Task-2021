@@ -16,7 +16,7 @@ namespace iMessengerWebAPI.Controllers
 
             var clientsCount = clients.Count;
 
-            using IRGDialogsClientsContext context = new RGDialogsClientsListContext();
+            using IDataContext context = new DataListContext();
 
             var dialogsClients = context.DialogsClients;
 

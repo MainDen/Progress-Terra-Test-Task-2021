@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace iMessengerInfrastructureAPI.Data
 {
-    public class RGDialogsClientsListContext : IRGDialogsClientsContext
+    public class DataListContext : IDataContext
     {
         private static readonly object s_latch = new object();
 
         private static List<RGDialogsClients> s_context;
 
-        public RGDialogsClientsListContext()
+        public DataListContext()
         {
             lock (s_latch)
                 s_context ??= RGDialogsClients.Init();

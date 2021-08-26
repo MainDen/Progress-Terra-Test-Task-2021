@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace iMessengerInfrastructureAPI.Data
 {
-    public interface IRGDialogsClientsContext : IDisposable
+    public interface IDataContext : IDisposable
     {
         IEnumerable<RGDialogsClients> DialogsClients { get; }
 
