@@ -9,9 +9,7 @@ namespace iMessengerWebAPI.Controllers
     [ApiController]
     public class SearchDialogsController : ControllerBase
     {
-        [HttpPost]
-        [Route("search/by/clients/dialogs")]
-        public IEnumerable<Guid> SearchDialogsByClients(List<Guid> clients)
+        internal IEnumerable<Guid> SearchDialogsByClients(List<Guid> clients)
         {
             if (clients is null)
                 throw new ArgumentNullException(nameof(clients));
