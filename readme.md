@@ -1,4 +1,4 @@
-# ProgressTerra Test Task 2021
+# Progress Terra Test Task 2021
 ## Solution by MainDen
 
 Есть сущность RGDialogsClients. Она предназначена для хранения информации о том, какие пользователи взаимодействуют в рамках одного диалога.
@@ -16,4 +16,5 @@
 
 ## Run
 
-Запустите iMessengerWebAPI.exe и перейдите на страницу http://localhost:5000/swagger/index.html
+1. Запустите iMessengerWebAPI.exe
+2. Откройте в веб-браузере страницу http://localhost:5000/swagger/index.html
