@@ -40,7 +40,7 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsArgumentNullException_ForNullClients()
+        public void SearchAnyDialogByClients_ReturnsArgumentNullException_ForNull()
         {
             var controller = new SearchDialogsController();
 
@@ -48,7 +48,7 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForEmptyClients()
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForEmpty()
         {
             var controller = new SearchDialogsController();
 
@@ -56,7 +56,71 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForGuidEmpty()
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient1 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient2 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C3()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient3 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C4()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient4 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C5()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient5 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_D1()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog1 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_D2()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog2 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_D3()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog3 }));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_E()
         {
             var controller = new SearchDialogsController();
 
@@ -64,7 +128,51 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForAllExistedIDClients()
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1_C1_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1_C1_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+                s_IDClient2,
+            };
+
+            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1_C2_C3_C4_C5()
         {
             var controller = new SearchDialogsController();
 
@@ -81,47 +189,7 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient1()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient1 }));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient2()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient2 }));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient3()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient3 }));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog3_ForIDClient4()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient4 }));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog3_ForIDClient5()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(new List<Guid> { s_IDClient5 }));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient1AndIDClient2()
+        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForClients_C1_C2_E()
         {
             var controller = new SearchDialogsController();
 
@@ -129,163 +197,6 @@ namespace iMessengerWebAPI.Tests
             {
                 s_IDClient1,
                 s_IDClient2,
-            };
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient2AndIDClient1()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient2,
-                s_IDClient1,
-            };
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient2AndIDClient3()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient2,
-                s_IDClient3,
-            };
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient3AndIDClient2()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient3,
-                s_IDClient2,
-            };
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog3_ForIDClient3AndIDClient4()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient3,
-                s_IDClient4,
-            };
-
-            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog3_ForIDClient4AndIDClient5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient4,
-                s_IDClient5,
-            };
-
-            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog1_ForIDClient1AndIDClient2AndIDClient3()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient1,
-                s_IDClient2,
-                s_IDClient3,
-            };
-
-            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsIDRGDialog3_ForIDClient3AndIDClients4AndIDClient5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient3,
-                s_IDClient4,
-                s_IDClient5,
-            };
-
-            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForIDClient1AndIDClient5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient1,
-                s_IDClient5,
-            };
-
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForIDClient2AndIDClient3AndIDClient4()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient2,
-                s_IDClient3,
-                s_IDClient4,
-            };
-
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForIDClient1Repeated3Times()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient1,
-                s_IDClient1,
-                s_IDClient1,
-            };
-
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForIDClient1AndGuidEmpty()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient1,
                 Guid.Empty,
             };
 
@@ -293,17 +204,95 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsGuidEmpty_ForAnyExistedIDRGDialog()
+        public void SearchAnyDialogByClients_ReturnsDialog_D1_ForClients_C1_C2_C3()
         {
             var controller = new SearchDialogsController();
 
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog1 }));
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog2 }));
-            Assert.AreEqual(Guid.Empty, controller.SearchAnyDialogByClients(new List<Guid> { s_IDRGDialog3 }));
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient2,
+                s_IDClient3,
+            };
+
+            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsArgumentNullException_ForNullClients()
+        public void SearchAnyDialogByClients_ReturnsDialog_D1_ForClients_C2_C3_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient2,
+                s_IDClient3,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(s_IDRGDialog1, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsDialog_D2_ForClients_C1_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient2,
+            };
+
+            Assert.AreEqual(s_IDRGDialog2, controller.SearchAnyDialogByClients(clients));
+        }
+        
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsDialog_D2_ForClients_C2_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient2,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(s_IDRGDialog2, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsDialog_D3_ForClients_C3_C4_C5()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient3,
+                s_IDClient4,
+                s_IDClient5,
+            };
+
+            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchAnyDialogByClients_ReturnsDialog_D3_ForClients_C5_C3_C4()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient5,
+                s_IDClient3,
+                s_IDClient4,
+            };
+
+            Assert.AreEqual(s_IDRGDialog3, controller.SearchAnyDialogByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsArgumentNullException_ForNull()
         {
             var controller = new SearchDialogsController();
 
@@ -311,7 +300,7 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForEmptyClients()
+        public void SearchDialogsByClients_ReturnsEmpty_ForEmpty()
         {
             var controller = new SearchDialogsController();
 
@@ -319,7 +308,71 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForGuidEmpty()
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDClient1 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDClient2 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C3()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDClient3 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C4()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDClient4 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C5()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDClient5 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_D1()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog1 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_D2()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog2 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_D3()
+        {
+            var controller = new SearchDialogsController();
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog3 }).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_E()
         {
             var controller = new SearchDialogsController();
 
@@ -327,7 +380,51 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForAllExistedIDClients()
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(clients).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1_C1_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+                s_IDClient1,
+            };
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(clients).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1_C1_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient1,
+                s_IDClient2,
+            };
+
+            Assert.AreEqual(0, controller.SearchDialogsByClients(clients).Count());
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1_C2_C3_C4_C5()
         {
             var controller = new SearchDialogsController();
 
@@ -344,81 +441,14 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog1AndIDRGDialog2_ForIDClients1()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog1,
-                s_IDRGDialog2,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(new List<Guid> { s_IDClient1 }));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog1AndIDRGDialog2_ForIDClients2()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog1,
-                s_IDRGDialog2,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(new List<Guid> { s_IDClient2 }));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog2AndIDRGDialog3_ForIDClients3()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog1,
-                s_IDRGDialog3,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(new List<Guid> { s_IDClient3 }));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog3_ForIDClients4()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog3,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(new List<Guid> { s_IDClient4 }));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog3_ForIDClients5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog3,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(new List<Guid> { s_IDClient5 }));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForIDClient1AndGuidEmpty()
+        public void SearchDialogsByClients_ReturnsEmpty_ForClients_C1_C2_E()
         {
             var controller = new SearchDialogsController();
 
             List<Guid> clients = new List<Guid>
             {
                 s_IDClient1,
+                s_IDClient2,
                 Guid.Empty,
             };
 
@@ -426,23 +456,52 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchAnyDialogByClients_ReturnsEmptyList_ForAnyExistedIDRGDialog()
-        {
-            var controller = new SearchDialogsController();
-
-            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog1 }).Count());
-            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog2 }).Count());
-            Assert.AreEqual(0, controller.SearchDialogsByClients(new List<Guid> { s_IDRGDialog3 }).Count());
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog1AndIDRGDialog2_ForIDClients1AndIDClients1()
+        public void SearchDialogsByClients_ReturnsDialogs_D1_ForClients_C1_C2_C3()
         {
             var controller = new SearchDialogsController();
 
             List<Guid> dialogs = new List<Guid>
             {
                 s_IDRGDialog1,
+            };
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient1,
+                s_IDClient2,
+                s_IDClient3,
+            };
+
+            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsDialogs_D1_ForClients_C2_C3_C1()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> dialogs = new List<Guid>
+            {
+                s_IDRGDialog1,
+            };
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient2,
+                s_IDClient3,
+                s_IDClient1,
+            };
+
+            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsDialogs_D2_ForClients_C1_C2()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> dialogs = new List<Guid>
+            {
                 s_IDRGDialog2,
             };
 
@@ -456,72 +515,38 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog1_ForIDClients2AndIDClients3()
+        public void SearchDialogsByClients_ReturnsDialogs_D2_ForClients_C2_C1()
         {
             var controller = new SearchDialogsController();
 
             List<Guid> dialogs = new List<Guid>
             {
-                s_IDRGDialog1,
+                s_IDRGDialog2,
             };
 
             List<Guid> clients = new List<Guid>
             {
                 s_IDClient2,
-                s_IDClient3,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog3_ForIDClients3AndIDClients4()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog3,
-            };
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient3,
-                s_IDClient4,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsIDRGDialog3_ForIDClients4AndIDClients5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>
-            {
-                s_IDRGDialog3,
-            };
-
-            List<Guid> clients = new List<Guid>
-            {
-                s_IDClient4,
-                s_IDClient5,
-            };
-
-            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
-        }
-
-        [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForIDClients1AndIDClients5()
-        {
-            var controller = new SearchDialogsController();
-
-            List<Guid> dialogs = new List<Guid>();
-
-            List<Guid> clients = new List<Guid>
-            {
                 s_IDClient1,
+            };
+
+            EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
+        }
+
+        [TestMethod]
+        public void SearchDialogsByClients_ReturnsDialogs_D3_ForClients_C3_C4_C5()
+        {
+            var controller = new SearchDialogsController();
+
+            List<Guid> dialogs = new List<Guid>
+            {
+                s_IDRGDialog3,
+            };
+
+            List<Guid> clients = new List<Guid>
+            {
+                s_IDClient3,
+                s_IDClient4,
                 s_IDClient5,
             };
 
@@ -529,20 +554,24 @@ namespace iMessengerWebAPI.Tests
         }
 
         [TestMethod]
-        public void SearchDialogsByClients_ReturnsEmptyList_ForIDClients2AndIDClients3AndIDClients4()
+        public void SearchDialogsByClients_ReturnsDialogs_D3_ForClients_C5_C3_C4()
         {
             var controller = new SearchDialogsController();
 
-            List<Guid> dialogs = new List<Guid>();
+            List<Guid> dialogs = new List<Guid>
+            {
+                s_IDRGDialog3,
+            };
 
             List<Guid> clients = new List<Guid>
             {
-                s_IDClient2,
+                s_IDClient5,
                 s_IDClient3,
                 s_IDClient4,
             };
 
             EnumerablesAreEqual(dialogs, controller.SearchDialogsByClients(clients));
         }
+
     }
 }

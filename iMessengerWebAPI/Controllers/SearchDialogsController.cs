@@ -19,6 +19,10 @@ namespace iMessengerWebAPI.Controllers
             using IDataContext context = new DataListContext();
 
             var dialogsClients = context.DialogsClients;
+            
+            var dialogsCounts = from dialogClient in dialogsClients
+                                group dialogClient by dialogClient.IDRGDialog into IDRGDialog
+                                select new { ID = IDRGDialog.Key, EntryCount = IDRGDialog.Count() };
 
             var dialogsEntryCounts = from dialogClient in dialogsClients
                                      where clients.Contains(dialogClient.IDClient)
@@ -26,6 +30,8 @@ namespace iMessengerWebAPI.Controllers
                                      select new { ID = IDRGDialog.Key, EntryCount = IDRGDialog.Count() };
 
             var dialogs = from dialogEntryCount in dialogsEntryCounts
+                          join dialogCount in dialogsCounts
+                          on dialogEntryCount equals dialogCount
                           where dialogEntryCount.EntryCount == clientsCount // the client cannot join the same dialog twice
                           select dialogEntryCount.ID;
 
