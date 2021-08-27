@@ -39,7 +39,7 @@ namespace iMessengerWebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("search/by/clients/dialogs/any")]
+        [Route("api/v1/search/by/clients/dialogs/any")]
         public Guid SearchAnyDialogByClients(List<Guid> clients)
         {
             if (clients is null)
